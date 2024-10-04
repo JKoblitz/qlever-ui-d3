@@ -714,26 +714,6 @@ function switchStates(cm) {
   }, 100);
 }
 
-function changeTheme(theme = undefined) {
-  if (editor.getOption("theme") == 'railscasts' || theme == 'default') {
-    log('Setting theme to default...', 'other');
-    editor.setOption('theme', 'default');
-    $('body').css('background', '#FFFFFF');
-    $('.well').css('background', '#F6F6F6');
-    $('.navbar').css('background', '#262626');
-    $('.navbar-default .navbar-nav>li>a,.navbar-default .navbar-brand').css('color', '#9d9d9d');
-    $('.navbar').addClass('navbar-inverse');
-    createCookie("theme", "default", 3);
-  } else {
-    log('Setting theme to dark...', 'other');
-    editor.setOption('theme', 'railscasts');
-    $('body').css('background', '#313131');
-    $('.well,.navbar').css('background', '#D2D2D2');
-    $('.navbar-default .navbar-nav>li>a,.navbar-default .navbar-brand').css('color', '#000');
-    $('.navbar').removeClass('navbar-inverse');
-    createCookie("theme", "railscasts", 3);
-  }
-}
 
 function expandEditor() {
   if ($('#editorArea').hasClass("col-md-8")) {

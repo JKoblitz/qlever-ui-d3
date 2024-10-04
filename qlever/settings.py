@@ -26,7 +26,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Application definition
 
@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://*.uni-freiburg.de']
+CSRF_TRUSTED_ORIGINS = ['https://*.dsmz.de']
 
 ROOT_URLCONF = 'qlever.urls'
 
