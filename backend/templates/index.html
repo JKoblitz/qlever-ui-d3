@@ -195,9 +195,14 @@
                   <button class="btn btn-default" onclick="processQuery(-1, this).catch(error => log(error.message, 'requests'));">
                     <i class="glyphicon glyphicon-refresh"></i> Clear cache
                   </button>
-                  <button class="btn btn-default" onclick="showQueryPlanningTree();">
+                  <!-- <button class="btn btn-default" onclick="showQueryPlanningTree();">
                     <i class="glyphicon glyphicon-object-align-vertical"></i> Analysis
+                  </button> -->
+                  {% if backend and backend.name == 'bacdive' %}
+                  <button id="helpBtn" class="btn btn-default" onclick="$('#docs').modal('show')">
+                    <i class="glyphicon glyphicon-question-sign"></i> Schema
                   </button>
+                  {% endif %}
                   <button id="examplesDropdownToggle" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
                     <i class="glyphicon glyphicon-align-left"></i> Examples
                     <span class="caret"></span>
@@ -346,8 +351,38 @@
         <br><br><br>
 
       {% endif %}
+
+      {% if backend and backend.name == 'bacdive' %}
+
+      <style>
+        #docs .table > tbody > tr > td:first-child {
+          font-weight: bold;
+          color: inherit;
+        }
+
+        #docs h4 {
+          margin-top: 4rem;
+          color: var(--primary-color);
+        }
+      </style>
+
+      <div class="modal" tabindex="-1" role="dialog" id="docs">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              {% include 'partials/docs/shex-bacdive-20240911.html' %}
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      
     </div>
     {% include 'partials/modals.html' %}
+   
     {% include 'partials/footer.html' %}
   </body>
 </html>
